@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Ember Starter Kit</title>
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <div class="row">
+      {{outlet "preferences"}}
+
+        <div class="col-xs-9 col-sm-9 col-md-9">
+          {{outlet "addressbar"}}
+            <div class="row">
+              {{outlet}}
+              {{outlet "preview"}}
+            </div>
+        </div>
+    </div>
+    {{outlet "context-menu"}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+    <div class="col-xs-4 col-sm-4 col-md-4">
+      <ul>
+      {{#each item in model}}
+        <li>{{item}}</li>
+      {{/each}}
+      </ul>
+    </div>
+  </script>
+
+  <script src="js/libs/jquery-1.10.2.js"></script>
+  <script src="js/libs/handlebars-1.1.2.js"></script>
+  <script type="text/javascript">
+    window.ENV = {};
+    ENV.EXTEND_PROTOTYPES = false;
+  </script>
+  <script src="js/libs/ember-1.3.1.js"></script>
+  <script src="js/app.js"></script>
+
+</body>
+</html>
