@@ -9,4 +9,5 @@ var App = Ember.Application.create({
 
 global.App = App;
 
+require('./js/modules/preferences/');
 require('./js/modules/application/');

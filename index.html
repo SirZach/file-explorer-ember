@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <title>Ember Starter Kit</title>
   <link rel="stylesheet" href="css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="css/font-awesome.min.css"/>
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/style.css">
 </head>
@@ -11,27 +12,54 @@
 
   <script type="text/x-handlebars">
     <div class="row">
-      {{outlet "preferences"}}
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="well" id="preferences">{{outlet preferences}}</div>
+      </div>
 
         <div class="col-xs-9 col-sm-9 col-md-9">
-          {{outlet "addressbar"}}
+          {{outlet addressbar}}
             <div class="row">
               {{outlet}}
-              {{outlet "preview"}}
+              {{outlet preview}}
             </div>
         </div>
     </div>
-    {{outlet "context-menu"}}
+    {{outlet context-menu}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <div class="col-xs-4 col-sm-4 col-md-4">
-      <ul>
+    <div class="col-xs-4 col-sm-4 col-md-4" id="files">
+      <ul class="fa-ul">
       {{#each item in model}}
-        <li>{{item}}</li>
+        <li>
+          <i class="fa-li fa fa-lg fa-folder"></i>{{item}}
+        </li>
       {{/each}}
       </ul>
     </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="preferences">
+    <h6>Favorites</h6>
+    <h6>Options</h6>
+    <div class="checkbox">
+      <label>
+        <input type="checkbox" value="canShowHidden"/>
+        Show Hidden Files
+      </label>
+    </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="address-bar">
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="preview">
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="context-menu">
+
   </script>
 
   <script src="js/libs/jquery-1.10.2.js"></script>
