@@ -2,3 +2,36 @@
 html, body {
     margin: 20px;
 }
+
+#files {
+    overflow: auto;
+    height: 500px;
+}
+
+#files ul li {
+    list-style: none;
+}
+
+#files ul li i.fa-folder {
+    color: #add8e6
+}
+
+#favorites h6 {
+    text-transform: uppercase;
+}
+
+#preview {
+    overflow: auto;
+    height: 500px;
+    padding-right: 15px;
+}
+
+#preview video {
+    height: 100%;
+    width: 100%;
+}
+
+#preview img {
+    height: 100%;
+    width: 100%;
+}

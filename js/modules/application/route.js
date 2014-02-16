@@ -1,7 +1,18 @@
 'use strict';
 
 module.exports = Ember.Route.extend({
-  model: function() {
+  renderTemplate: function () {
+    this.render();
+
+    this.render('preferences', {
+      outlet: 'preferences',
+      controller: 'preferences'
+    });
+
+
+  },
+
+  model: function () {
     return Ember.A(['red', 'yellow', 'blue']);
   }
 });
