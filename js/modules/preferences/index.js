@@ -3,4 +3,4 @@
  */
 var App = App || global.App;
 
-App.PreferencesRoute = require('./route');
+App.PreferencesRoute = require('./routes/preferences_route');
