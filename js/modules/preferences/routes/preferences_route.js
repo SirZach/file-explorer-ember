@@ -6,7 +6,6 @@ module.exports = Ember.Route.extend({
   },
 
   afterModel: function(preferences, transition) {
-    debugger;
     this.transitionTo('files');
   }
 });
