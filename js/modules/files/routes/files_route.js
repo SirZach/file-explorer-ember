@@ -1,6 +1,7 @@
 'use strict';
 
 var fs = require('fs'),
+    path = require('path'),
     File = require('../models/file_model');
 
 module.exports = Ember.Route.extend({
@@ -21,7 +22,8 @@ module.exports = Ember.Route.extend({
 
       files.forEach(function (file) {
         ret.pushObject(File.create({
-          name: file
+          name: file,
+          filePath: path.join(file)
         }));
       });
 

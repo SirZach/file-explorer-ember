@@ -40,9 +40,9 @@
 
     <div class="col-xs-5 col-sm-5 col-md-5" id="files">
       <ul class="fa-ul">
-      {{#each item in model}}
+      {{#each file in model}}
         <li>
-          <i class="fa-li fa fa-lg fa-folder"></i>{{item.name}}
+          <i {{bind-attr class=":fa-li :fa :fa-lg file.icon"}}></i>{{file.name}}
         </li>
       {{/each}}
       </ul>
