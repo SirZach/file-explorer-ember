@@ -31,11 +31,17 @@ module.exports = Ember.Route.extend({
     });
   },
 
-  renderTemplate: function () {
-    this.render('files', {
-      into: 'application',
-      outlet: 'files'
-    });
+//  renderTemplate: function () {
+//    this.render('files', {
+//      into: 'application',
+//      outlet: 'files'
+//    });
+//  },
+
+  actions: {
+    openPreview : function (file) {
+      this.transitionTo('file.preview', file);
+    }
   }
 });
 

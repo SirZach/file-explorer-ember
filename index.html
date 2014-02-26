@@ -10,26 +10,26 @@
 </head>
 <body>
   <script type="text/x-handlebars">
-    <div class="row">
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        {{outlet}}
-      </div>
-      <div class="col-xs-9 col-sm-9 col-md-9">
-        {{outlet 'files'}}
-      </div>
-    </div>
+    {{outlet}}
     {{outlet 'context-menu'}}
   </script>
 
   <script type="text/x-handlebars" data-template-name="preferences">
-    <div class="well" id="preferences">
-      <h6>Favorites</h6>
-      <h6>Options</h6>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" value="canShowHidden"/>
-          Show Hidden Files
-        </label>
+    <div class="row">
+      <div class="col-xs-3 col-sm-3 col-md-3">
+        <div class="well" id="preferences">
+          <h6>Favorites</h6>
+          <h6>Options</h6>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" value="canShowHidden"/>
+              Show Hidden Files
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-9 col-sm-9 col-md-9">
+        {{outlet}}
       </div>
     </div>
   </script>
@@ -41,7 +41,7 @@
     <div class="col-xs-5 col-sm-5 col-md-5" id="files">
       <ul class="fa-ul">
       {{#each file in model}}
-        <li>
+        <li {{action openPreview file}}>
           <i {{bind-attr class=":fa-li :fa :fa-lg file.icon"}}></i>{{file.name}}
         </li>
       {{/each}}
@@ -56,8 +56,8 @@
 
   </script>
 
-  <script type="text/x-handlebars" data-template-name="preview">
-    <h1>Preview!</h1>
+  <script type="text/x-handlebars" data-template-name="file/preview">
+    <h1>{{model.name}}!</h1>
   </script>
 
   <script type="text/x-handlebars" data-template-name="context-menu">
