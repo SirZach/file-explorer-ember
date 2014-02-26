@@ -4,11 +4,16 @@ var fs = require('fs'),
     path = require('path'),
     File = require('../models/file_model');
 
+function getUserHome() {
+  return process.env.HOME || process.env.HOMEPATH || process.env.USERPROFILE;
+}
+
 module.exports = Ember.Route.extend({
   model: function () {
     var filesPromise = new Ember.RSVP.Promise(function (resolve, reject) {
 
-      fs.readdir(process.cwd(), function (error, files) {
+      process.chdir(getUserHome());
+      fs.readdir(getUserHome(), function (error, files) {
         if (error) {
           reject();
         }
@@ -31,12 +36,20 @@ module.exports = Ember.Route.extend({
     });
   },
 
-//  renderTemplate: function () {
-//    this.render('files', {
-//      into: 'application',
-//      outlet: 'files'
-//    });
-//  },
+  setupController: function (controller) {
+    this._super.apply(this, arguments);
+    controller.set('currentDirectory', getUserHome());
+  },
+
+  renderTemplate: function () {
+    this._super.apply(this, arguments);
+
+    this.render('addressbar', {
+      into: 'files',
+      outlet: 'addressbar',
+      controller: 'files'
+    });
+  },
 
   actions: {
     openPreview : function (file) {

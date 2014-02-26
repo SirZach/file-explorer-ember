@@ -52,8 +52,18 @@
     </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="address-bar">
-
+  <script type="text/x-handlebars" data-template-name="addressbar">
+    <ul class="breadcrumb">
+      {{#each dir in directories}}
+        <li {{bind-attr class="dir.class"}}>
+          {{#if dir.class}}
+            {{dir.name}}
+          {{else}}
+            <a href="#">{{dir.name}}</a>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
   </script>
 
   <script type="text/x-handlebars" data-template-name="file/preview">
