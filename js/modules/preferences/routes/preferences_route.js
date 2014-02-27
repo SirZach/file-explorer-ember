@@ -2,7 +2,9 @@
 
 module.exports = Ember.Route.extend({
   model: function () {
-    return Ember.A(['haha', 'zach']);
+    return Ember.Object.create({
+      canShowHidden: true
+    });
   },
 
   afterModel: function(preferences, transition) {

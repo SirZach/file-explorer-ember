@@ -7,6 +7,10 @@
 'use strict';
 
 module.exports = Ember.ArrayController.extend({
+  needs: ['preferences'],
+
+  itemController: 'fileItem',
+
   /** @property {ObjectArray} Returns an array of all the directories leading up to the current directory*/
   directories: Ember.computed('currentDirectory', function () {
     var currentDirectory = this.get('currentDirectory');

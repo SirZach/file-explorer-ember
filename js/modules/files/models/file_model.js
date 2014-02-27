@@ -63,5 +63,10 @@ module.exports = Ember.Object.extend({
     var stats = this.get('stats');
 
     return stats.isDirectory();
+  }),
+
+  /** @property {boolean} - is the file a system file (starts with a .) */
+  isPrivate: Ember.computed('name', function () {
+    return this.get('name').charAt(0) === '.';
   })
 });
