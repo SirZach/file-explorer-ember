@@ -56,6 +56,28 @@ function findFilesPromise (directory) {
   return filesPromise;
 }
 
+/**
+ * Compiles an array of File Models that are in the current path
+ * @param directory
+ * @returns {Ember.NativeArray|*}
+ */
+function getFilesInPath (directory) {
+  var directoriesInPath = directory.split('/'),
+      filesInPath = Ember.A(),
+      dirInLoop = '';
+
+  for (var i = 0; i < directoriesInPath.length; i++) {
+    dirInLoop += directoriesInPath[i] + '/';
+
+    filesInPath.pushObject(File.create({
+      name: directoriesInPath[i],
+      filePath: dirInLoop
+    }));
+  };
+
+  return filesInPath;
+}
+
 module.exports = Ember.Route.extend({
   model: function () {
     var filesPromise = findFilesPromise(getUserHome());
@@ -70,7 +92,7 @@ module.exports = Ember.Route.extend({
    */
   setupController: function (controller) {
     this._super.apply(this, arguments);
-    controller.set('currentDirectory', getUserHome());
+    controller.set('filesInPath', getFilesInPath(getUserHome()));
   },
 
   renderTemplate: function () {
@@ -113,7 +135,7 @@ module.exports = Ember.Route.extend({
        files.then(function (f) {
          controller.setProperties({
            model: f,
-           currentDirectory: directory
+           filesInPath: getFilesInPath(directory)
          });
        });
     }

@@ -55,14 +55,10 @@
   </script>
 
   <script type="text/x-handlebars" data-template-name="addressbar">
-    <ul class="breadcrumb">
-      {{#each dir in directories}}
-        <li {{bind-attr class="dir.class"}}>
-          {{#if dir.class}}
-            {{dir.name}}
-          {{else}}
-            <a {{action openDir dir.directory}} href="#">{{dir.name}}</a> /
-          {{/if}}
+    <ul class="breadcrumb" id="addressbar">
+      {{#each file in filesInPath}}
+        <li>
+          <a {{action open file}} href="#">{{file.name}}</a>
         </li>
       {{/each}}
     </ul>

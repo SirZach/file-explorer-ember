@@ -9,35 +9,5 @@
 module.exports = Ember.ArrayController.extend({
   needs: ['preferences'],
 
-  itemController: 'fileItem',
-
-  /** @property {ObjectArray} Returns an array of all the directories leading up to the current directory*/
-  directories: Ember.computed('currentDirectory', function () {
-    var currentDirectory = this.get('currentDirectory');
-
-    if (!currentDirectory) {
-      return Ember.A([]);
-    }
-
-    var ret = [],
-        directories = currentDirectory.split('/'),
-        dirInLoop = '';
-
-    for (var i = 0; i < directories.length; i++) {
-      dirInLoop += directories[i] + '/';
-      var currentDir = {
-        name: directories[i],
-        directory: dirInLoop,
-        class: ''
-      };
-
-      if (i === directories.length - 1) {
-        currentDir.class = "active";
-      }
-
-      ret.push(currentDir);
-    }
-
-    return Ember.A(ret);
-  })
+  itemController: 'fileItem'
 });
