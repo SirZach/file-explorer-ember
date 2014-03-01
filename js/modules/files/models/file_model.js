@@ -44,7 +44,7 @@ module.exports = Ember.Object.extend({
     }
   }),
 
-  /** @property {boolean} - is the fila an html file */
+  /** @property {boolean} - is the file an html file */
   isHtml: Ember.computed('extName', function () {
     var extName = this.get('extName');
 
