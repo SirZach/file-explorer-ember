@@ -13,5 +13,9 @@
   "dependencies": {
   },
   "devDependencies": {
+    "gulp":"*",
+    "gulp-stylus": "*",
+    "gulp-concat": "*",
+    "nib": "1"
   }
 }
