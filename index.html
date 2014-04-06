@@ -66,6 +66,7 @@
 
   <script type="text/x-handlebars" data-template-name="file/preview">
     <div id="preview">
+      {{name}}
       {{#if isPicture}}
         <img {{bind-attr src=filePath}}></img>
       {{/if}}
