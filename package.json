@@ -16,6 +16,7 @@
     "gulp":"*",
     "gulp-stylus": "*",
     "gulp-concat": "*",
+    "gulp-ember-handlebars": "*",
     "nib": "1"
   }
 }
