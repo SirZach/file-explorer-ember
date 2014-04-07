@@ -11,3 +11,5 @@ App.FilePreviewRoute = require('./routes/file_preview_route');
 
 App.FilesController = require('./controllers/files_controller');
 App.FileItemController = require('./controllers/file_item_controller');
+
+App.ClickableFileComponent = require('./components/clickable_file_component');

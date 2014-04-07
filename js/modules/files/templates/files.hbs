@@ -4,9 +4,7 @@
   <ul class="fa-ul">
     {{#each file in controller}}
       {{#if canShowFile}}
-        <li {{action open file}}>
-          <i {{bind-attr class=":fa-li :fa :fa-lg file.icon"}}></i>{{file.name}}
-        </li>
+        {{clickable-file action="open" file=file}}
       {{/if}}
     {{/each}}
   </ul>
