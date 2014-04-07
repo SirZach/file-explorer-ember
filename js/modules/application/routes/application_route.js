@@ -9,9 +9,12 @@ var Shell = global.window.nwDispatcher.requireNwGui().Shell;
 
 module.exports = Ember.Route.extend({
   actions: {
-    openContextMenu: function (file) {
+    openContextMenu: function (file, event) {
       if (!file.get('isDirectory')) {
-        this.set('controller.contextMenuFile', file);
+        this.setProperties({
+          'controller.contextMenuFile': file,
+          'controller.contextEvent': event
+        });
         this.render('context_menu', {
           outlet: 'context-menu',
           into: 'application'

@@ -3,6 +3,10 @@ body {
   margin: 20px;
 }
 
+#context-menu {
+  position: fixed;
+}
+
 #files {
   overflow: auto;
   height: 500px;

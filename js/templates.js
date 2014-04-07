@@ -20,8 +20,10 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   data.buffer.push(escapeExpression((helper = helpers['context-menu'] || (depth0 && depth0['context-menu']),options={hash:{
     'close': ("closeContextMenu"),
     'open': ("openFile"),
-    'file': ("contextMenuFile")
-  },hashTypes:{'close': "STRING",'open': "STRING",'file': "ID"},hashContexts:{'close': depth0,'open': depth0,'file': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "context-menu", options))));
+    'event': ("contextEvent"),
+    'file': ("contextMenuFile"),
+    'id': ("context-menu")
+  },hashTypes:{'close': "STRING",'open': "STRING",'event': "ID",'file': "ID",'id': "STRING"},hashContexts:{'close': depth0,'open': depth0,'event': depth0,'file': depth0,'id': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "context-menu", options))));
   
 });
 Ember.TEMPLATES["addressbar"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {

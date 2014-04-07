@@ -13,6 +13,6 @@ module.exports = Ember.Component.extend({
   },
 
   contextMenu: function (event) {
-    this.sendAction('openContextMenu', this.get('file'));
+    this.sendAction('openContextMenu', this.get('file'), event);
   }
 });
