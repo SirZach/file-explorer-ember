@@ -18,8 +18,10 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push(escapeExpression((helper = helpers['context-menu'] || (depth0 && depth0['context-menu']),options={hash:{
-    'close': ("closeContextMenu")
-  },hashTypes:{'close': "STRING"},hashContexts:{'close': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "context-menu", options))));
+    'close': ("closeContextMenu"),
+    'open': ("openFile"),
+    'file': ("contextMenuFile")
+  },hashTypes:{'close': "STRING",'open': "STRING",'file': "ID"},hashContexts:{'close': depth0,'open': depth0,'file': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "context-menu", options))));
   
 });
 Ember.TEMPLATES["addressbar"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
@@ -109,7 +111,7 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push("<div class=\"list-group\">\n  <a href=\"#\" class=\"list-group-item\" ");
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openFile", "file", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "open", "file", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">Open</a>\n  <a href=\"#\" class=\"list-group-item\" ");
   data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push(">Close</a>\n</div>");

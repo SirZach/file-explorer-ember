@@ -5,10 +5,13 @@
  */
 'use strict';
 
+var Shell = global.window.nwDispatcher.requireNwGui().Shell;
+
 module.exports = Ember.Route.extend({
   actions: {
     openContextMenu: function (file) {
       if (!file.get('isDirectory')) {
+        this.set('controller.contextMenuFile', file);
         this.render('context_menu', {
           outlet: 'context-menu',
           into: 'application'
@@ -21,6 +24,11 @@ module.exports = Ember.Route.extend({
         outlet: 'context-menu',
         parentView: 'application'
       });
+    },
+
+    openFile: function (file) {
+      Shell.openItem(file.get('filePath'));
+      this.send('closeContextMenu');
     }
   }
 });
