@@ -1,0 +1,7 @@
+<ul class="breadcrumb" id="addressbar">
+  {{#each file in filesInPath}}
+    <li>
+      <a {{action open file}} href="#">{{file.name}}</a>
+    </li>
+  {{/each}}
+</ul>

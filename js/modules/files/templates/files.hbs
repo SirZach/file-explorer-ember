@@ -1,0 +1,16 @@
+{{outlet 'addressbar'}}
+
+<div class="col-xs-5 col-sm-5 col-md-5" id="files">
+  <ul class="fa-ul">
+    {{#each file in controller}}
+      {{#if canShowFile}}
+        <li {{action open file}}>
+          <i {{bind-attr class=":fa-li :fa :fa-lg file.icon"}}></i>{{file.name}}
+        </li>
+      {{/if}}
+    {{/each}}
+  </ul>
+</div>
+<div class="col-xs-7 col-sm-7 col-md-7">
+  {{outlet}}
+</div>

@@ -14,71 +14,6 @@
     {{outlet 'context-menu'}}
   </script>
 
-  <script type="text/x-handlebars" data-template-name="preferences">
-    <div class="row">
-      <div class="col-xs-3 col-sm-3 col-md-3">
-        <div class="well" id="preferences">
-          <h6>Favorites</h6>
-          <h6>Options</h6>
-          <div class="checkbox">
-            <label>
-              {{input type="checkbox" checked=canShowHidden}}
-              Show Hidden Files
-            </label>
-          </div>
-        </div>
-      </div>
-      <div class="col-xs-9 col-sm-9 col-md-9">
-        {{outlet}}
-      </div>
-    </div>
-  </script>
-
-
-  <script type="text/x-handlebars" data-template-name="files">
-    {{outlet 'addressbar'}}
-
-    <div class="col-xs-5 col-sm-5 col-md-5" id="files">
-      <ul class="fa-ul">
-      {{#each file in controller}}
-        {{#if canShowFile}}
-        <li {{action open file}}>
-          <i {{bind-attr class=":fa-li :fa :fa-lg file.icon"}}></i>{{file.name}}
-        </li>
-        {{/if}}
-      {{/each}}
-      </ul>
-    </div>
-    <div class="col-xs-7 col-sm-7 col-md-7">
-      {{outlet}}
-    </div>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="addressbar">
-    <ul class="breadcrumb" id="addressbar">
-      {{#each file in filesInPath}}
-        <li>
-          <a {{action open file}} href="#">{{file.name}}</a>
-        </li>
-      {{/each}}
-    </ul>
-  </script>
-
-  <script type="text/x-handlebars" data-template-name="file/preview">
-    <div id="preview">
-      {{name}}
-      {{#if isPicture}}
-        <img {{bind-attr src=filePath}}></img>
-      {{/if}}
-
-      {{#if isMovie}}
-        <video {{bind-attr src=filePath}} type="video/mp4" controls>
-          Your browser does not support the <code>video</code> element.
-        </video>
-      {{/if}}
-    </div>
-  </script>
-
   <script type="text/x-handlebars" data-template-name="context-menu">
 
   </script>
@@ -90,6 +25,7 @@
     ENV.EXTEND_PROTOTYPES = false;
   </script>
   <script src="js/libs/ember-1.5.0.js"></script>
+  <script src="js/templates.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>
