@@ -11,6 +11,17 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
   return buffer;
   
 });
+Ember.TEMPLATES["context_menu"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
+this.compilerInfo = [4,'>= 1.0.0'];
+helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
+  var helper, options, helperMissing=helpers.helperMissing, escapeExpression=this.escapeExpression;
+
+
+  data.buffer.push(escapeExpression((helper = helpers['context-menu'] || (depth0 && depth0['context-menu']),options={hash:{
+    'close': ("closeContextMenu")
+  },hashTypes:{'close': "STRING"},hashContexts:{'close': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "context-menu", options))));
+  
+});
 Ember.TEMPLATES["addressbar"] = Ember.Handlebars.template(function anonymous(Handlebars,depth0,helpers,partials,data) {
 this.compilerInfo = [4,'>= 1.0.0'];
 helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
@@ -55,8 +66,9 @@ function program2(depth0,data) {
   data.buffer.push("\n        ");
   data.buffer.push(escapeExpression((helper = helpers['clickable-file'] || (depth0 && depth0['clickable-file']),options={hash:{
     'action': ("open"),
+    'openContextMenu': ("openContextMenu"),
     'file': ("file")
-  },hashTypes:{'action': "STRING",'file': "ID"},hashContexts:{'action': depth0,'file': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "clickable-file", options))));
+  },hashTypes:{'action': "STRING",'openContextMenu': "STRING",'file': "ID"},hashContexts:{'action': depth0,'openContextMenu': depth0,'file': depth0},contexts:[],types:[],data:data},helper ? helper.call(depth0, options) : helperMissing.call(depth0, "clickable-file", options))));
   data.buffer.push("\n      ");
   return buffer;
   }
@@ -97,9 +109,9 @@ helpers = this.merge(helpers, Ember.Handlebars.helpers); data = data || {};
 
 
   data.buffer.push("<div class=\"list-group\">\n  <a href=\"#\" class=\"list-group-item\" ");
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openFile", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "openFile", "file", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0,depth0],types:["STRING","ID"],data:data})));
   data.buffer.push(">Open</a>\n  <a href=\"#\" class=\"list-group-item\" ");
-  data.buffer.push(escapeExpression(helpers.action.call(depth0, "closeContextMenu", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
+  data.buffer.push(escapeExpression(helpers.action.call(depth0, "close", {hash:{},hashTypes:{},hashContexts:{},contexts:[depth0],types:["STRING"],data:data})));
   data.buffer.push(">Close</a>\n</div>");
   return buffer;
   

@@ -10,5 +10,9 @@ module.exports = Ember.Component.extend({
 
   click: function (event) {
     this.sendAction('action', this.get('file'));
+  },
+
+  contextMenu: function (event) {
+    this.sendAction('openContextMenu', this.get('file'));
   }
 });

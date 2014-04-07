@@ -11,3 +11,4 @@ global.App = App;
 
 require('./js/modules/preferences/');
 require('./js/modules/files/');
+require('./js/modules/application');

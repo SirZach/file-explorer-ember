@@ -4,7 +4,7 @@
   <ul class="fa-ul">
     {{#each file in controller}}
       {{#if canShowFile}}
-        {{clickable-file action="open" file=file}}
+        {{clickable-file action="open" openContextMenu="openContextMenu" file=file}}
       {{/if}}
     {{/each}}
   </ul>
