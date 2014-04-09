@@ -10,6 +10,7 @@ var path = require('path'),
     gulp = require('gulp'),
     concat = require('gulp-concat'),
     stylus = require('gulp-stylus'),
+    spawn = require('gulp-spawn'),
     handlebars = require('gulp-ember-handlebars'),
 
     //FILE PATHS
@@ -28,7 +29,9 @@ function createTemplateName (name) {
 
 gulp.task('styles', function () {
   return gulp.src(stylesPath)
-      .pipe(stylus())
+      .pipe(stylus().on('error', function (error) {
+        console.log('stylus error - ' + error);
+      }))
       .pipe(concat('app.css'))
       .pipe(gulp.dest('./css'));
 });
@@ -43,7 +46,23 @@ gulp.task('templates', function(){
       .pipe(gulp.dest('js/'));
 });
 
-gulp.task('default', ['styles', 'templates'], function () {
-  gulp.watch(stylesPath, ['styles']);
-  gulp.watch(handleBarsPath, ['templates']);
+gulp.task('zip', function () {
+  return gulp.src([stylesPath, handleBarsPath])
+      .pipe(spawn({
+        cmd: 'zip',
+        args: [
+          '-r',
+          'app.nw',
+          '.',
+          '-x',
+          '.*',
+          'node_modules/*'
+        ]
+      }))
+      .pipe(gulp.dest('.'));
+});
+
+gulp.task('default', ['styles', 'templates', 'zip'], function () {
+  gulp.watch(stylesPath, ['styles', 'zip']);
+  gulp.watch(handleBarsPath, ['templates', 'zip']);
 });

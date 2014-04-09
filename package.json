@@ -10,13 +10,13 @@
   "webkit": {
     "plugin": true
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
-    "gulp":"*",
+    "gulp": "*",
     "gulp-stylus": "*",
     "gulp-concat": "*",
     "gulp-ember-handlebars": "*",
-    "nib": "1"
+    "nib": "1",
+    "gulp-spawn": "^0.3.0"
   }
 }
