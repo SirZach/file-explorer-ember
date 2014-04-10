@@ -15,7 +15,8 @@ var path = require('path'),
 
     //FILE PATHS
     stylesPath = 'js/**/*.styl',
-    handleBarsPath = 'js/**/templates/**/*.hbs';
+    handleBarsPath = 'js/**/templates/**/*.hbs',
+    jsPath = 'js/**/*.js';
 
 function createTemplateName (name) {
   //remove the extension
@@ -56,6 +57,7 @@ gulp.task('zip', function () {
           '.',
           '-x',
           '.*',
+          'modules/*',
           'node_modules/*'
         ]
       }))
@@ -65,4 +67,5 @@ gulp.task('zip', function () {
 gulp.task('default', ['styles', 'templates', 'zip'], function () {
   gulp.watch(stylesPath, ['styles', 'zip']);
   gulp.watch(handleBarsPath, ['templates', 'zip']);
+  gulp.watch(jsPath, ['zip']);
 });
