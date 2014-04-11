@@ -73,7 +73,7 @@ function getFilesInPath (directory) {
       name: directoriesInPath[i],
       filePath: dirInLoop
     }));
-  };
+  }
 
   return filesInPath;
 }

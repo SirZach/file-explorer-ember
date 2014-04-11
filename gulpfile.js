@@ -12,11 +12,12 @@ var path = require('path'),
     stylus = require('gulp-stylus'),
     spawn = require('gulp-spawn'),
     handlebars = require('gulp-ember-handlebars'),
+    jshint = require('gulp-jshint'),
 
     //FILE PATHS
     stylesPath = 'js/**/*.styl',
     handleBarsPath = 'js/**/templates/**/*.hbs',
-    jsPath = 'js/**/*.js';
+    jsPath = 'js/modules/**/*.js';
 
 function createTemplateName (name) {
   //remove the extension
@@ -57,15 +58,19 @@ gulp.task('zip', function () {
           '.',
           '-x',
           '.*',
-          'modules/*',
           'node_modules/*'
         ]
-      }))
-      .pipe(gulp.dest('.'));
+      }));
 });
 
-gulp.task('default', ['styles', 'templates', 'zip'], function () {
+gulp.task('lint', function () {
+  gulp.src([jsPath])
+      .pipe(jshint('.jshintrc'))
+      .pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('default', ['styles', 'templates', 'zip', 'lint'], function () {
   gulp.watch(stylesPath, ['styles', 'zip']);
   gulp.watch(handleBarsPath, ['templates', 'zip']);
-  gulp.watch(jsPath, ['zip']);
+  gulp.watch(jsPath, ['zip', 'lint']);
 });

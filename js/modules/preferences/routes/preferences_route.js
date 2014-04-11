@@ -1,6 +1,6 @@
 'use strict';
 
-var localStorage = global.window.localStorage,
+var local = global.window.localStorage,
     Storage = global.window.Storage;
 
 //local storage does not natively support being able to store and retrieve objects, only primitive values
@@ -15,7 +15,7 @@ Storage.prototype.getObject = function(key) {
 
 module.exports = Ember.Route.extend({
   model: function () {
-    return Ember.Object.create(localStorage.getObject('preferences'));
+    return Ember.Object.create(local.getObject('preferences'));
   },
 
   afterModel: function (preferences, transition) {
@@ -27,7 +27,7 @@ module.exports = Ember.Route.extend({
      * Set the preferenecs object on local storage to whatever is the latest on the controller
      */
     updatePreferences: function () {
-      localStorage.setObject('preferences', this.get('controller.preferences'));
+      local.setObject('preferences', this.get('controller.preferences'));
     }
   }
 });

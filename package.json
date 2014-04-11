@@ -17,6 +17,8 @@
     "gulp-concat": "*",
     "gulp-ember-handlebars": "*",
     "nib": "1",
-    "gulp-spawn": "^0.3.0"
+    "gulp-spawn": "^0.3.0",
+    "gulp-jshint": "^1.5.3",
+    "jshint-stylish": "^0.1.5"
   }
 }
